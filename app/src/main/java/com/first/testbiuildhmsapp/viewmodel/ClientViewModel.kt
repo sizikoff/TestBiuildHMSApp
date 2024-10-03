@@ -17,8 +17,8 @@ class ClientViewModel : ViewModel() {
     init {
         // Инициализируем состояние с данными клиента
         _state.value = ClientState(
-            clientName = "OperatorA",
-            textColor = 0xFF5733  // Задаем цвет для OperatorA
+            clientName = "OperatorF",
+            textColor = 0xFF8C33  // Задаем цвет для OperatorA
         )
     }
 
