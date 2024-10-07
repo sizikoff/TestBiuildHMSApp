@@ -13,20 +13,29 @@ class ClientViewModel : ViewModel() {
 
     private val _state = MutableStateFlow(ClientState(clientName = "", textColor = 0x000000))
     val state: StateFlow<ClientState> = _state
+    private val _latitude = MutableStateFlow(0.0)
+    private val _longitude = MutableStateFlow(0.0)
+
+    val latitude: StateFlow<Double> = _latitude
+    val longitude: StateFlow<Double> = _longitude
 
     init {
-        // Инициализируем состояние с данными клиента
         _state.value = ClientState(
             clientName = "OperatorA",
-            textColor = 0xFF5733  // Задаем цвет для OperatorA
+            textColor = 0xFF5733
         )
     }
 
     fun handleIntent(intent: ClientIntent) {
         when (intent) {
             is ClientIntent.LoadClientData -> {
-                // Здесь можно загружать реальные данные для клиента, если необходимо
             }
         }
+    }
+
+    // Функция обновления координат
+    fun updateLocation(latitude: Double, longitude: Double) {
+        _latitude.value = latitude
+        _longitude.value = longitude
     }
 }
